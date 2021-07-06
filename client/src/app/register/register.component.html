@@ -1,0 +1,36 @@
+<h1 class="page-header">Register Page</h1>
+<form [formGroup]="form" (submit)="onRegister()">
+  <div class="form-group">
+    <label>Email</label>
+    <div [ngClass]="{'has-error':(form.controls.email.errors && form.controls.email.dirty) ,
+    'has-success': !form.controls.email.errors}">
+      <input type="text" name="email" class="form-control" autocomplete="off" placeholder="Email"
+      formControlName="email">
+      <ul class="help-block">
+        <li *ngIf="!form.controls.email.errors.required">This is a required field</li>
+      </ul>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Mobile</label>
+    <div>
+      <input type="text" name="mobile" class="form-control" autocomplete="off" placeholder="Mobile"
+      formControlName="mobile">
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <div>
+      <input type="password" name="password" class="form-control" autocomplete="off" placeholder="Password"
+      formControlName="password">
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Confirm Password</label>
+    <div>
+      <input type="password" name="confirm" class="form-control" autocomplete="off" placeholder="Confirm Password"
+      formControlName="confirm">
+    </div>
+  </div>
+  <input type="submit" class="btn btn-primary" value="Submit">
+</form>
